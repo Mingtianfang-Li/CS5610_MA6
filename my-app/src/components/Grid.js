@@ -4,13 +4,6 @@ import '../css/Grid.css';
 
 function Grid() {
     const [cells, setCells] = useState([false,false,false,false]);
-    const countOnCells = getCountOnCells();
-
-    function getCountOnCells() {
-        return cells.filter(function (state){
-            return state;
-        }).length;
-    }
 
     function toggleCell(index) {
         setCells(function (prevCells) {
@@ -24,9 +17,13 @@ function Grid() {
         });
     }
 
+    const countOnCells = cells.filter(function (state) {
+        return state;
+    }).length;
+
     return (
         <div className="grid-container">
-            <h2>Cells On: {countOnCells}</h2>
+            <h2>Counts: {countOnCells}</h2>
             <div className="grid">
                 {cells.map(function (isBlack, index) {
                     return (

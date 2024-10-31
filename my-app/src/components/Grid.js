@@ -4,6 +4,7 @@ import '../css/Grid.css';
 
 function Grid() {
     const [cells, setCells] = useState([false,false,false,false]);
+    const countOnCells = getCountOnCells();
 
     function toggleCell(index) {
         setCells(function (prevCells) {
@@ -17,9 +18,11 @@ function Grid() {
         });
     }
 
-    const countOnCells = cells.filter(function (state) {
-        return state;
-    }).length;
+    function getCountOnCells() {
+        return cells.filter(function (state){
+            return state;
+        }).length;
+    }
 
     return (
         <div className="grid-container">
